@@ -7,7 +7,7 @@ They are made to run on **Google Colab**: upload a notebook (File → Upload not
 notebooks/01_remocao_artefactos.ipynb   the workshop: filtering, a broken electrode, removing blinks with ICA
 notebooks/01_artifact_removal.ipynb     same workshop notebook in English
 notebooks/02_pipeline_completo.ipynb    full automatic pipeline for your own recordings
-scripts/prepare_data.py                 pre-computes filtering + ICA locally (not used on Colab)
+scripts/eeg_viwer.py                    local EEG viewer: pick a file and inspect it in the MNE browser
 data/                                   local data folders (see data/README.md)
 ```
 
@@ -21,6 +21,17 @@ Everything is computed live; ICA takes a few seconds.
 1. Upload your recordings with the **Choose Files** button (or Cancel to use the example data).
 2. Line-noise notch (50/60 Hz, auto-detected) → 1 Hz high-pass → bad-channel detection (PREP criteria, `pyprep`) and interpolation → average reference → extended-infomax ICA → automatic component labelling (ICLabel, `mne-icalabel`) → removal of eye/muscle/heart/line-noise/channel-noise components → 40 Hz low-pass.
 3. Results are downloaded as a `.zip`: cleaned recording (`_clean-raw.fif`), ICA (`-ica.fif`) and an HTML report (`_relatorio.html`).
+
+## Viewing recordings locally
+
+```bash
+poetry run python scripts/eeg_viwer.py              # pick a file in a dialog (starts in data/)
+poetry run python scripts/eeg_viwer.py file.edf     # open a file directly
+```
+
+Opens the recording in MNE's interactive browser (1-40 Hz display filter). Clinical channel names
+(`EEG Fp1-REF`, `T3`, ...) are matched to standard positions, as in the pipeline. Press `?` in the browser for shortcuts.
+Works for raw files in `data/raw/` and pipeline output in `data/preprocessed/` (`*_clean-raw.fif`).
 
 ## Local development
 
