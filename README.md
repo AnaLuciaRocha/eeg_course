@@ -1,6 +1,6 @@
 # EEG workshop: cleaning brain signals with MNE-Python
 
-Notebooks (PT-PT) for a non-technical audience on **removing artifacts from EEG**.
+Notebooks (PT-PT) for a non-technical audience on **removing artifacts from EEG** and **spectral analysis (FFT)**.
 
 ## Getting started
 
@@ -28,6 +28,7 @@ The same notebooks run in local Jupyter; the differences are handled in the hidd
 notebooks/01_remocao_artefactos.ipynb   the workshop: filtering, a broken electrode, removing blinks with ICA
 notebooks/01_artifact_removal.ipynb     same workshop notebook in English
 notebooks/02_pipeline_completo.ipynb    full automatic pipeline for your own recordings
+notebooks/03_analise_espectral.ipynb    spectral analysis: FFT, Welch, band power, spectrogram, qEEG trends
 scripts/eeg_viwer.py                    local EEG viewer: pick a file and inspect it in the MNE browser
 data/                                   local data folders (see data/README.md)
 ```
@@ -40,8 +41,16 @@ Everything is computed live; ICA takes a few seconds.
 ## Full pipeline (`02_pipeline_completo.ipynb`)
 
 1. Upload your recordings with the **Choose Files** button (or Cancel to use the example data).
-2. Line-noise notch (50/60 Hz, auto-detected) → 1 Hz high-pass → bad-channel detection (PREP criteria, `pyprep`) and interpolation → average reference → extended-infomax ICA → automatic component labelling (ICLabel, `mne-icalabel`) → removal of eye/muscle/heart/line-noise/channel-noise components → 40 Hz low-pass.
+2. Line-noise notch (50/60 Hz, auto-detected) → 1 Hz high-pass → bad-channel detection (PREP criteria, `pyprep`; channels are only marked) → average reference without the bad channels → extended-infomax ICA (bad channels excluded) → automatic component labelling (ICLabel, `mne-icalabel`) → removal of eye/muscle/heart/line-noise/channel-noise components → interpolation of the bad channels and re-referencing → 40 Hz low-pass.
+   Optional section 5b compares ICA with two alternatives on the same signal: wavelet thresholding (inspired by HAPPE/HAPPILEE) and GEDAI (`pygedai`, PolyForm Noncommercial licence).
 3. Results are downloaded as a `.zip`: cleaned recording (`_clean-raw.fif`), ICA (`-ica.fif`) and an HTML report (`_relatorio.html`).
+
+## Spectral analysis (`03_analise_espectral.ipynb`)
+
+From synthetic signals (sum of sines → FFT, frequency resolution = 1/window, Welch averaging) to a real
+recording: 1 min eyes open (`S001R01`) vs 1 min eyes closed (`S001R02`) from the same PhysioNet database.
+Shows the alpha peak, absolute/relative band power, alpha/delta ratio (ADR), SEF95, alpha topomaps, the
+spectrogram (and the effect of window length on it) and qEEG trends. Some cells have Colab sliders.
 
 ## Viewing recordings locally
 
