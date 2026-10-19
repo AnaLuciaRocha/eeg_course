@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workshop de EEG</title>
+<style>
+  :root { --bg: #fafaf9; --card: #ffffff; --text: #1c1917; --muted: #57534e; --border: #e7e5e4; --accent: #e8710a; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1c1917; --card: #292524; --text: #f5f5f4; --muted: #a8a29e; --border: #44403c; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.55 system-ui, -apple-system, sans-serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 48px 16px; }
+  h1 { font-size: 1.8rem; margin: 0 0 8px; }
+  p { color: var(--muted); margin: 0 0 16px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+  .card h2 { font-size: 1.15rem; margin: 0 0 6px; }
+  .button { display: inline-block; margin-top: 4px; padding: 8px 16px; border-radius: 8px; background: var(--accent);
+            color: #fff; text-decoration: none; font-weight: 600; }
+  .button:hover { opacity: 0.9; }
+  ol { color: var(--muted); padding-left: 20px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Workshop de EEG</h1>
+  <p>Limpeza de sinais cerebrais com MNE-Python. Os notebooks abrem no Google Colab: não é preciso instalar nada.</p>
+
+  <div class="card">
+    <h2>1. Remoção de artefactos</h2>
+    <p>O workshop: filtros, um elétrodo com mau contacto e remoção de piscadelas com ICA.</p>
+    <a class="button" href="https://colab.research.google.com/github/vduarte06/eeg-workshop/blob/main/notebooks/01_remocao_artefactos.ipynb" target="_blank">Abrir no Colab</a>
+  </div>
+
+  <div class="card">
+    <h2>2. Pipeline completo</h2>
+    <p>Pré-processamento automático dos seus próprios registos.</p>
+    <a class="button" href="https://colab.research.google.com/github/vduarte06/eeg-workshop/blob/main/notebooks/02_pipeline_completo.ipynb" target="_blank">Abrir no Colab</a>
+  </div>
+
+  <h2>Como usar</h2>
+  <ol>
+    <li>Clique em <b>Abrir no Colab</b> (é necessária uma conta Google).</li>
+    <li>Escolha <b>Ambiente de execução → Executar tudo</b>.</li>
+    <li>Para guardar as suas alterações: <b>Ficheiro → Guardar uma cópia no Drive</b>.</li>
+  </ol>
+</main>
+</body>
+</html>
