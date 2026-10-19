@@ -47,10 +47,15 @@ Everything is computed live; ICA takes a few seconds.
 
 ## Spectral analysis (`03_analise_espectral.ipynb`)
 
-From synthetic signals (sum of sines → FFT, frequency resolution = 1/window, Welch averaging) to a real
-recording: 1 min eyes open (`S001R01`) vs 1 min eyes closed (`S001R02`) from the same PhysioNet database.
-Shows the alpha peak, absolute/relative band power, alpha/delta ratio (ADR), SEF95, alpha topomaps, the
-spectrogram (and the effect of window length on it) and qEEG trends. Some cells have Colab sliders.
+Self-contained: does not require the artifact-removal notebook (filtering, average reference and artifacts
+are introduced where they are needed). From synthetic signals (sum of sines → FFT, frequency resolution =
+1/window, Welch averaging) to a real recording: 1 min eyes open (`R01`) vs 1 min eyes closed (`R02`) from the
+same PhysioNet database, for any of the 109 participants (slider). Shows the raw traces, the effect of the
+1-40 Hz filter (60 Hz line noise), epoch rejection and its effect on delta power, the alpha peak,
+absolute/relative band power, alpha/delta ratio (ADR), SEF95, band topomaps, the spectrogram (and the effect
+of window length on it) and qEEG trends. Most cells have Colab controls (region, band, window, threshold).
+Section 10 compares recordings in a quiz: your own files, or (with none uploaded) the example recordings
+plus simulated low-voltage and muscle-artifact versions.
 
 ## Viewing recordings locally
 
