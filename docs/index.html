@@ -88,13 +88,13 @@
 
   <div class="card">
     <h2>1. Princípios de análise quantitativa do sinal de EEG</h2>
-    <p>Como passar do traçado de EEG a números que o descrevem. O notebook mostra, com um registo real, como o sinal se decompõe nas suas frequências (Transformada de Fourier) e como daí resultam as medidas de EEG quantitativo (qEEG): potência por bandas (delta, teta, alfa, beta), razões entre bandas, mapas topográficos e espectrograma.</p>
+    <p>Pré-processamento do sinal de EEG, explicado e explorado passo a passo. Com o registo de exemplo ou com os seus próprios registos (<code>.edf</code>, <code>.bdf</code>, entre outros), o notebook mostra o efeito de cada etapa no sinal: remoção da interferência da rede elétrica, filtragem, deteção de elétrodos com mau contacto, referência média e remoção de artefactos por Análise de Componentes Independentes (ICA) com classificação automática dos componentes. Compara também a ICA com métodos alternativos (<i>wavelets</i> e GEDAI) e exporta o registo corrigido com um relatório. Pode processar vários registos de uma só vez.</p>
     <a class="button" href="https://colab.research.google.com/drive/19QVw9GL_lCTqnTzkDQIHGkBA3hkGxEIS?usp=sharing" target="_blank">Abrir no Colab</a>
   </div>
 
   <div class="card">
-    <h2>2. Obter as métricas de EEG</h2>
-    <p>Aplicação prática aos seus próprios registos. Carregue um ficheiro de EEG (por exemplo, <code>.edf</code>) e o notebook calcula automaticamente as métricas apresentadas no primeiro notebook, produzindo uma tabela que pode descarregar e usar na sua análise.</p>
+    <h2>2. Obter as métricas de EEG</h2>   
+    <p>Da Transformada de Fourier (FFT) ao espectrograma: como o sinal se decompõe nas suas frequências e como daí resultam as medidas de EEG quantitativo (qEEG). Com registos reais de olhos abertos e fechados, o notebook explora a potência por bandas (absoluta e relativa), a razão alfa/delta, a frequência de corte espectral (SEF95), os mapas topográficos, o espectrograma e as tendências de qEEG. No fim, aplica as mesmas medidas aos seus próprios registos, discute quando é que podem enganar e exporta uma tabela (CSV) para análise posterior.</p>
     <a class="button" href="https://colab.research.google.com/drive/1IEG1wC_pzFXDPoEGq1y-uaDpR1isVJhq?usp=sharing" target="_blank">Abrir no Colab</a>
   </div>
 
